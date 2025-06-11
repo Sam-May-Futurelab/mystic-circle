@@ -1,0 +1,18 @@
+<!-- Theme Screenshot Placeholder -->
+<!-- This would normally be a 1200x900 PNG file named screenshot.png -->
+<!-- For now, we'll create an HTML file that explains what the screenshot should show -->
+
+Theme Screenshot Guidelines:
+- Size: 1200px × 900px
+- Format: PNG
+- Filename: screenshot.png
+
+The screenshot should show:
+1. The mystical hero section with purple gradients
+2. Star effects and celestial motifs  
+3. The elegant typography (Cormorant Garamond/Playfair)
+4. Celebrity predictions section
+5. The rose gold and purple color scheme
+6. The overall magical, premium aesthetic
+
+This file should be replaced with an actual screenshot.png image once the theme is live and styled.
