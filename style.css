@@ -77,21 +77,29 @@ p {
 /* Header */
 .site-header {
     position: fixed;
-    top: 0;
+    top: 30px;
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(45, 27, 61, 0.95);
+    background: linear-gradient(180deg, rgba(45, 27, 61, 0.8) 0%, rgba(45, 27, 61, 0.2) 70%, transparent 100%);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
+}
+
+/* Add background when scrolled */
+.site-header.scrolled {
+    background: rgba(45, 27, 61, 0.95);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .header-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 15px 0;
+    padding: 20px 0;
+    position: relative;
+    margin: 0 20px;
+    border-radius: 15px;
 }
 
 .site-logo {
@@ -103,11 +111,19 @@ p {
     display: flex;
     align-items: center;
     gap: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .site-logo::before {
     content: "✨";
     font-size: 1.2em;
+}
+
+.main-navigation {
+    position: absolute;
+    right: 0;
 }
 
 .main-navigation ul {
@@ -635,6 +651,414 @@ p {
     50% { opacity: 0.8; }
 }
 
+/* Mystical Section Dividers */
+.section-divider {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.section-divider-top {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.section-divider-bottom {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+/* Mystical Wave Divider */
+.mystical-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10c10-5 20-8 30-3s20 8 30 3 20-8 30-3 20 8 30 3v7H0V10z' fill='%23d4af37' fill-opacity='0.1'/%3E%3C/svg%3E") repeat-x;
+    animation: wave-flow 8s ease-in-out infinite;
+}
+
+.mystical-wave::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15c15-3 25-6 35-1s25 6 35 1 25-6 35-1v5H0v-4z' fill='%238b7db8' fill-opacity='0.15'/%3E%3C/svg%3E") repeat-x;
+    animation: wave-flow 12s ease-in-out infinite reverse;
+}
+
+@keyframes wave-flow {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(-50px); }
+}
+
+/* Cosmic Mist Divider */
+.cosmic-mist {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse 100px 30px at 10% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse 150px 40px at 30% 30%, rgba(139, 125, 184, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 80px 25px at 60% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 120px 35px at 90% 40%, rgba(74, 44, 90, 0.2) 0%, transparent 50%);
+    animation: cosmic-drift 15s ease-in-out infinite;
+}
+
+@keyframes cosmic-drift {
+    0%, 100% { transform: translateX(0px) scale(1); opacity: 0.6; }
+    25% { transform: translateX(20px) scale(1.1); opacity: 0.8; }
+    50% { transform: translateX(-10px) scale(0.9); opacity: 0.4; }
+    75% { transform: translateX(15px) scale(1.05); opacity: 0.7; }
+}
+
+/* Constellation Path Divider */
+.constellation-path {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.constellation-path::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        transparent 5%,
+        rgba(212, 175, 55, 0.6) 10%,
+        transparent 15%,
+        transparent 20%,
+        rgba(139, 125, 184, 0.4) 25%,
+        transparent 30%,
+        transparent 35%,
+        rgba(212, 175, 55, 0.8) 40%,
+        transparent 45%,
+        transparent 50%,
+        rgba(248, 246, 255, 0.6) 55%,
+        transparent 60%,
+        transparent 65%,
+        rgba(212, 175, 55, 0.5) 70%,
+        transparent 75%,
+        transparent 80%,
+        rgba(139, 125, 184, 0.7) 85%,
+        transparent 90%,
+        transparent 100%);
+    animation: constellation-glow 6s ease-in-out infinite;
+}
+
+.constellation-path::after {
+    content: '✦';
+    position: absolute;
+    top: -8px;
+    left: 10%;
+    color: rgba(212, 175, 55, 0.8);
+    font-size: 16px;
+    animation: star-twinkle 3s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+}
+
+/* Mystical Curve Divider */
+.mystical-curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 85% 60%, 70% 70%, 50% 80%, 30% 70%, 15% 60%, 0 50%);
+    background: linear-gradient(135deg, 
+        rgba(212, 175, 55, 0.1) 0%, 
+        rgba(139, 125, 184, 0.08) 30%,
+        rgba(74, 44, 90, 0.12) 60%,
+        rgba(212, 175, 55, 0.06) 100%);
+    animation: curve-shimmer 10s ease-in-out infinite;
+}
+
+@keyframes curve-shimmer {
+    0%, 100% { opacity: 0.6; transform: translateY(0px); }
+    25% { opacity: 0.9; transform: translateY(-2px); }
+    50% { opacity: 0.4; transform: translateY(0px); }
+    75% { opacity: 0.8; transform: translateY(1px); }
+}
+
+/* Add mystical particles to dividers */
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 15% 30%, rgba(212, 175, 55, 0.4), transparent),
+        radial-gradient(1px 1px at 45% 60%, rgba(139, 125, 184, 0.3), transparent),
+        radial-gradient(1px 1px at 75% 20%, rgba(248, 246, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 30% 80%, rgba(212, 175, 55, 0.3), transparent),
+        radial-gradient(1px 1px at 85% 70%, rgba(139, 125, 184, 0.4), transparent);
+    background-size: 200px 100px;
+    animation: particle-drift 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes particle-drift {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(-200px); }
+}
+
+/* Section with mystical dividers */
+.section-with-divider {
+    position: relative;
+    padding: 100px 0;
+}
+
+.section-with-divider .section-divider-top {
+    top: -1px;
+}
+
+.section-with-divider .section-divider-bottom {
+    bottom: -1px;
+}
+
+/* What We Offer Section */
+.what-we-offer-section {
+    background: linear-gradient(135deg, #1e2a4a 0%, #2d1b3d 50%, #1e2a4a 100%);
+    position: relative;
+}
+
+.what-we-offer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 125, 184, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+    animation: mystical-glow 15s ease-in-out infinite;
+}
+
+@keyframes mystical-glow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.offer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.mystical-description {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.description-card {
+    background: rgba(74, 44, 90, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.description-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--golden-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.description-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+}
+
+.description-card:hover::before {
+    opacity: 0.05;
+}
+
+.cosmic-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    animation: float-icon 4s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.description-card p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(248, 246, 255, 0.95);
+    position: relative;
+    z-index: 2;
+}
+
+.description-card strong {
+    color: var(--rose-gold);
+    font-weight: 600;
+}
+
+.description-card em {
+    color: var(--soft-lavender);
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.feature-item {
+    background: rgba(45, 27, 61, 0.4);
+    border-radius: 15px;
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(139, 125, 184, 0.2);
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
+.feature-item:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.3); }
+}
+
+.feature-item h4 {
+    color: var(--rose-gold);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-family: var(--font-display);
+    position: relative;
+    z-index: 2;
+}
+
+.feature-item p {
+    color: rgba(248, 246, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Mystical CTA Box */
+.offer-cta {
+    text-align: center;
+}
+
+.mystical-box {
+    background: rgba(30, 42, 74, 0.6);
+    border-radius: 25px;
+    padding: 50px 40px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mystical-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.1), transparent, rgba(139, 125, 184, 0.1), transparent);
+    animation: mystical-rotate 20s linear infinite;
+}
+
+@keyframes mystical-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.mystical-box h3,
+.mystical-box p,
+.mystical-box a {
+    position: relative;
+    z-index: 2;
+}
+
+.mystical-box p {
+    font-size: 1.1rem;
+    color: rgba(248, 246, 255, 0.9);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     :root {
@@ -643,11 +1067,23 @@ p {
     
     .header-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
+        padding: 15px 0;
+    }
+    
+    .site-logo {
+        position: static;
+        transform: none;
+        font-size: 1.6rem;
+    }
+    
+    .main-navigation {
+        position: static;
     }
     
     .main-navigation ul {
         gap: 20px;
+        justify-content: center;
     }
     
     .hero-content {
@@ -665,6 +1101,28 @@ p {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    .mystical-description {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .description-card,
+    .mystical-box {
+        padding: 30px 25px;
+    }
+    
+    .cosmic-icon {
+        font-size: 2.5rem;
+    }
+    
+    .feature-icon {
+        font-size: 2rem;
     }
 }
 

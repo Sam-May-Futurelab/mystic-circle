@@ -30,7 +30,11 @@ get_header(); ?>
 </section>
 
 <!-- Celebrity Predictions Section -->
-<section class="section section-alt" id="celebrity">
+<div class="section-divider">
+    <div class="mystical-wave"></div>
+</div>
+
+<section class="section section-alt section-with-divider" id="celebrity">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Celebrity Predictions</h2>
@@ -75,7 +79,11 @@ get_header(); ?>
 </section>
 
 <!-- Features Section -->
-<section class="section" id="features">
+<div class="section-divider">
+    <div class="cosmic-mist"></div>
+</div>
+
+<section class="section section-with-divider" id="features">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Your Mystical Journey</h2>
@@ -114,7 +122,11 @@ get_header(); ?>
 </section>
 
 <!-- Order Section -->
-<section class="section order-section" id="order">
+<div class="section-divider">
+    <div class="constellation-path"></div>
+</div>
+
+<section class="section order-section section-with-divider" id="order">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Order Your Destiny Matrix Reading</h2>
@@ -247,7 +259,11 @@ get_header(); ?>
 </section>
 
 <!-- Testimonials Section -->
-<section class="section section-alt" id="testimonials">
+<div class="section-divider">
+    <div class="mystical-curve"></div>
+</div>
+
+<section class="section section-alt section-with-divider" id="testimonials">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Mystical Testimonials</h2>
@@ -280,6 +296,94 @@ get_header(); ?>
                     "The spiritual insights opened doorways I never knew existed. My intuitive abilities awakened, 
                     and I finally understand my life's deeper purpose. Thank you for this gift!"
                 </p>
+            </div>
+        </div>    </div>
+</section>
+
+<!-- What Do We Offer Section -->
+<div class="section-divider">
+    <div class="cosmic-mist"></div>
+</div>
+
+<section class="section what-we-offer-section section-with-divider" id="what-we-offer">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">What do we offer?</h2>
+            <p style="font-size: 1.3rem; color: var(--soft-lavender); margin-bottom: 40px;">
+                Ever wondered what the universe has planned for you? We've got the answers!
+            </p>
+        </div>
+        
+        <div class="offer-content">
+            <div class="mystical-description">
+                <div class="description-card">
+                    <div class="cosmic-icon">🔮</div>
+                    <p>
+                        Our <strong>personalised readings</strong> crafted with care using our destiny matrix methods, 
+                        reveal your <em>career path</em>, <em>finances</em>, <em>past life</em>, <em>love life</em> and more.
+                    </p>
+                </div>
+                
+                <div class="description-card">
+                    <div class="cosmic-icon">✨</div>
+                    <p>
+                        We use our own <strong>unique methods</strong> to break it all down in a way that's 
+                        easy to understand - ready to see what your chart says about you?
+                    </p>
+                </div>
+            </div>
+            
+            <div class="offer-features">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">💼</div>
+                        <h4>Career Path</h4>
+                        <p>Discover your true calling and professional destiny</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <h4>Financial Future</h4>
+                        <p>Uncover opportunities for wealth and abundance</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🌙</div>
+                        <h4>Past Life Insights</h4>
+                        <p>Understand your soul's journey through time</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">💕</div>
+                        <h4>Love & Relationships</h4>
+                        <p>Find clarity in matters of the heart</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🌟</div>
+                        <h4>Life Purpose</h4>
+                        <p>Reveal your soul's mission in this lifetime</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🔥</div>
+                        <h4>Personal Growth</h4>
+                        <p>Unlock your highest potential and gifts</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offer-cta">
+                <div class="mystical-box">
+                    <h3 style="color: var(--rose-gold); margin-bottom: 20px;">Ready to unlock your cosmic blueprint?</h3>
+                    <p style="margin-bottom: 30px;">
+                        Your personalized Destiny Matrix reading is waiting to reveal the secrets 
+                        the universe has written in the stars just for you.
+                    </p>
+                    <a href="#order" class="btn btn-primary" style="font-size: 1.2rem; padding: 18px 40px;">
+                        Discover Your Destiny Matrix
+                    </a>
+                </div>
             </div>
         </div>
     </div>

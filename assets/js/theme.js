@@ -17,8 +17,7 @@
     function initMysticalEffects() {
         // Add twinkling stars effect
         createStarField();
-        
-        // Parallax scrolling for hero section
+          // Parallax scrolling for hero section
         $(window).scroll(function() {
             var scrolled = $(this).scrollTop();
             var rate = scrolled * -0.5;
@@ -27,8 +26,8 @@
                 'transform': 'translate3d(0, ' + rate + 'px, 0)'
             });
             
-            // Header transparency effect
-            if (scrolled > 100) {
+            // Header background effect - transparent initially, then solid when scrolled
+            if (scrolled > 50) {
                 $('.site-header').addClass('scrolled');
             } else {
                 $('.site-header').removeClass('scrolled');
