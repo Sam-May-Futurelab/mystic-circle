@@ -149,55 +149,199 @@ p {
     display: flex;
     align-items: center;
     position: relative;
-    background: var(--mystic-gradient);
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     overflow: hidden;
 }
 
-.hero-background {
+.mystical-canvas {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.1;
-    background-image: 
-        radial-gradient(circle at 20% 50%, var(--rose-gold) 1px, transparent 1px),
-        radial-gradient(circle at 80% 20%, var(--soft-lavender) 1px, transparent 1px),
-        radial-gradient(circle at 40% 80%, var(--rose-gold) 1px, transparent 1px);
-    background-size: 200px 200px, 300px 300px, 250px 250px;
-    animation: starfield 20s linear infinite;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
 }
 
-@keyframes starfield {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100px); }
+.floating-orbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
 }
 
+.mystical-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.8) 0%, rgba(212, 175, 55, 0.2) 40%, transparent 70%);
+    animation: float-mystical 6s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+.mystical-orb:nth-child(odd) {
+    background: radial-gradient(circle, rgba(139, 125, 184, 0.6) 0%, rgba(139, 125, 184, 0.2) 40%, transparent 70%);
+    animation-duration: 8s;
+    animation-direction: reverse;
+}
+
+.mystical-orb:nth-child(3n) {
+    background: radial-gradient(circle, rgba(248, 246, 255, 0.8) 0%, rgba(248, 246, 255, 0.1) 30%, transparent 60%);
+    animation-duration: 10s;
+}
+
+@keyframes float-mystical {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.7;
+    }
+    25% { 
+        transform: translateY(-20px) translateX(10px) scale(1.1);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-40px) translateX(-10px) scale(0.9);
+        opacity: 0.8;
+    }
+    75% { 
+        transform: translateY(-20px) translateX(15px) scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+.shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(45deg, #fff, transparent);
+    border-radius: 50%;
+    box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.8);
+    animation: shoot 3s linear infinite;
+    opacity: 0;
+}
+
+@keyframes shoot {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px) translateY(100px) scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(-50px) translateY(50px) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateX(300px) translateY(-300px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(350px) translateY(-350px) scale(0);
+    }
+}
+
+.constellation-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.constellation-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+    animation: constellation-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes constellation-glow {
+    0% { opacity: 0.2; transform: scaleX(0.8); }
+    100% { opacity: 0.8; transform: scaleX(1.2); }
+}
+
+.mystical-aurora {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 20% 50%, rgba(139, 125, 184, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 80%, rgba(74, 44, 90, 0.1) 0%, transparent 50%);
+    animation: aurora-shift 20s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes aurora-shift {
+    0%, 100% { opacity: 0.3; transform: translateX(0px) scale(1); }
+    25% { opacity: 0.6; transform: translateX(20px) scale(1.05); }
+    50% { opacity: 0.4; transform: translateX(-10px) scale(0.95); }
+    75% { opacity: 0.7; transform: translateX(15px) scale(1.02); }
+}
+
+/* Enhanced hero content layering */
 .hero-content {
     text-align: center;
-    z-index: 2;
+    z-index: 10;
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--soft-lavender);
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    background: rgba(45, 27, 61, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 60px 40px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .hero-title {
     margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+    animation: title-glow 3s ease-in-out infinite alternate;
 }
 
-.hero-description {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-    color: rgba(248, 246, 255, 0.95);
+@keyframes title-glow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3); }
+    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.6); }
+}
+
+/* Cosmic dust particles */
+.cosmic-dust {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(212, 175, 55, 0.4), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(139, 125, 184, 0.3), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 160px 30px, rgba(212, 175, 55, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: cosmic-drift 40s linear infinite;
+}
+
+@keyframes cosmic-drift {
+    0% { transform: translateX(0px) translateY(0px); }
+    100% { transform: translateX(-200px) translateY(-100px); }
 }
 
 /* Buttons */

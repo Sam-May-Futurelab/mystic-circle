@@ -7,7 +7,12 @@ get_header(); ?>
 
 <!-- Hero Section -->
 <section class="hero-section" id="home">
-    <div class="hero-background"></div>
+    <canvas class="mystical-canvas" id="mysticalCanvas"></canvas>
+    <div class="mystical-aurora"></div>
+    <div class="cosmic-dust"></div>
+    <div class="floating-orbs" id="floatingOrbs"></div>
+    <div class="shooting-stars" id="shootingStars"></div>
+    <div class="constellation-lines" id="constellationLines"></div>
     <div class="container">
         <div class="hero-content">
             <p class="hero-subtitle">Destiny Awaits</p>

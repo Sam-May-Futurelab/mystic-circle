@@ -3,11 +3,9 @@
  */
 
 (function($) {
-    'use strict';
-
-    // DOM Ready
+    'use strict';    // DOM Ready
     $(document).ready(function() {
-        initMysticalEffects();
+        initAllMysticalEffects();
         initSmoothScrolling();
         initFormEnhancements();
         initAnimations();
@@ -323,3 +321,211 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+/**
+ * Mystical Night Sky Particle System
+ */
+function initMysticalNightSky() {
+    const canvas = document.getElementById('mysticalCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Particle arrays
+    const stars = [];
+    const particles = [];
+    const connectionLines = [];
+    
+    // Create static stars
+    function createStars() {
+        for (let i = 0; i < 150; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2 + 0.5,
+                twinkle: Math.random() * 2 * Math.PI,
+                twinkleSpeed: Math.random() * 0.02 + 0.01,
+                brightness: Math.random() * 0.8 + 0.2
+            });
+        }
+    }
+    
+    // Create floating particles
+    function createParticles() {
+        for (let i = 0; i < 50; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 3 + 1,
+                color: `hsl(${45 + Math.random() * 30}, ${60 + Math.random() * 40}%, ${60 + Math.random() * 30}%)`,
+                alpha: Math.random() * 0.6 + 0.2,
+                pulse: Math.random() * 2 * Math.PI,
+                pulseSpeed: Math.random() * 0.03 + 0.01
+            });
+        }
+    }
+    
+    // Draw twinkling stars
+    function drawStars() {
+        stars.forEach(star => {
+            star.twinkle += star.twinkleSpeed;
+            const alpha = star.brightness * (0.5 + 0.5 * Math.sin(star.twinkle));
+            
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+            ctx.arc(star.x, star.y, star.size, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Star glow
+            if (alpha > 0.7) {
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(212, 175, 55, ${alpha * 0.3})`;
+                ctx.arc(star.x, star.y, star.size * 3, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        });
+    }
+    
+    // Draw floating particles
+    function drawParticles() {
+        particles.forEach(particle => {
+            // Update position
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+            
+            // Bounce off edges
+            if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+            if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+            
+            // Pulse effect
+            particle.pulse += particle.pulseSpeed;
+            const pulseAlpha = particle.alpha * (0.6 + 0.4 * Math.sin(particle.pulse));
+            
+            // Draw particle
+            ctx.beginPath();
+            ctx.fillStyle = particle.color.replace(')', `, ${pulseAlpha})`).replace('hsl', 'hsla');
+            ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Draw particle glow
+            ctx.beginPath();
+            ctx.fillStyle = particle.color.replace(')', `, ${pulseAlpha * 0.3})`).replace('hsl', 'hsla');
+            ctx.arc(particle.x, particle.y, particle.size * 4, 0, 2 * Math.PI);
+            ctx.fill();
+        });
+    }
+    
+    // Draw connections between nearby particles
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    const alpha = (150 - distance) / 150 * 0.2;
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(212, 175, 55, ${alpha})`;
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    
+    // Animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        drawStars();
+        drawParticles();
+        drawConnections();
+        
+        requestAnimationFrame(animate);
+    }
+    
+    // Initialize
+    createStars();
+    createParticles();
+    animate();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+}
+
+// Create floating orbs
+function createFloatingOrbs() {
+    const container = document.getElementById('floatingOrbs');
+    if (!container) return;
+    
+    for (let i = 0; i < 8; i++) {
+        const orb = document.createElement('div');
+        orb.className = 'mystical-orb';
+        orb.style.width = (Math.random() * 20 + 10) + 'px';
+        orb.style.height = orb.style.width;
+        orb.style.left = Math.random() * 100 + '%';
+        orb.style.top = Math.random() * 100 + '%';
+        orb.style.animationDelay = Math.random() * 6 + 's';
+        container.appendChild(orb);
+    }
+}
+
+// Create shooting stars
+function createShootingStars() {
+    const container = document.getElementById('shootingStars');
+    if (!container) return;
+    
+    function addShootingStar() {
+        const star = document.createElement('div');
+        star.className = 'shooting-star';
+        star.style.left = Math.random() * 50 + '%';
+        star.style.top = Math.random() * 50 + 50 + '%';
+        star.style.animationDelay = '0s';
+        container.appendChild(star);
+        
+        setTimeout(() => {
+            if (star.parentNode) {
+                star.parentNode.removeChild(star);
+            }
+        }, 3000);
+    }
+    
+    // Create shooting stars periodically
+    setInterval(addShootingStar, 2000 + Math.random() * 3000);
+    addShootingStar(); // Initial star
+}
+
+// Create constellation lines
+function createConstellationLines() {
+    const container = document.getElementById('constellationLines');
+    if (!container) return;
+    
+    for (let i = 0; i < 5; i++) {
+        const line = document.createElement('div');
+        line.className = 'constellation-line';
+        line.style.width = (Math.random() * 200 + 100) + 'px';
+        line.style.left = Math.random() * 80 + 10 + '%';
+        line.style.top = Math.random() * 80 + 10 + '%';
+        line.style.transform = `rotate(${Math.random() * 360}deg)`;
+        line.style.animationDelay = Math.random() * 4 + 's';
+        container.appendChild(line);
+    }
+}
+
+// Initialize all effects when page loads
+function initAllMysticalEffects() {
+    initMysticalNightSky();
+    createFloatingOrbs();
+    createShootingStars();
+    createConstellationLines();
+}
