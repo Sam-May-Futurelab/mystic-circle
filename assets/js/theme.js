@@ -16,8 +16,7 @@
      */
     function initMysticalEffects() {
         // Add twinkling stars effect
-        createStarField();
-          // Parallax scrolling for hero section
+        createStarField();        // Parallax scrolling for hero section
         $(window).scroll(function() {
             var scrolled = $(this).scrollTop();
             var rate = scrolled * -0.5;
@@ -25,13 +24,6 @@
             $('.hero-background').css({
                 'transform': 'translate3d(0, ' + rate + 'px, 0)'
             });
-            
-            // Header background effect - transparent initially, then solid when scrolled
-            if (scrolled > 50) {
-                $('.site-header').addClass('scrolled');
-            } else {
-                $('.site-header').removeClass('scrolled');
-            }
         });
         
         // Mystical hover effects for cards
@@ -313,11 +305,7 @@ style.textContent = `
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-20px); }
     }
-    
-    .site-header.scrolled {
-        background: rgba(45, 27, 61, 0.98) !important;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    }
+  
 `;
 document.head.appendChild(style);
 

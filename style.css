@@ -22,10 +22,9 @@ Author: Your Name
     --star-white: #f8f6ff;
     --mystic-gradient: linear-gradient(135deg, #2d1b3d 0%, #4a2c5a 50%, #8b7db8 100%);
     --golden-gradient: linear-gradient(45deg, #d4af37 0%, #f4e4a6 100%);
-    
-    /* Typography */
-    --font-serif: 'Cormorant Garamond', serif;
-    --font-display: 'Playfair Display', serif;
+      /* Typography */
+    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Cinzel', serif;
     
     /* Spacing */
     --section-padding: 80px 0;
@@ -33,7 +32,7 @@ Author: Your Name
 }
 
 body {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     line-height: 1.6;
     color: var(--star-white);
     background: var(--deep-purple);
@@ -81,15 +80,9 @@ p {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: linear-gradient(180deg, rgba(45, 27, 61, 0.8) 0%, rgba(45, 27, 61, 0.2) 70%, transparent 100%);
+    background: linear-gradient(180deg, rgba(45, 27, 61, 0.8) 0%, rgba(45, 27, 61, 0.2) 70%, transparent 100%) !important;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-/* Add background when scrolled */
-.site-header.scrolled {
-    background: rgba(45, 27, 61, 0.95);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    transition: backdrop-filter 0.3s ease, opacity 0.3s ease;
 }
 
 .header-content {
@@ -167,6 +160,101 @@ p {
     position: relative;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     overflow: hidden;
+}
+
+/* Clean White Particles Background */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 160px 30px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 200px 85px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 240px 45px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 280px 75px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 320px 25px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 360px 65px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 400px 35px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 440px 80px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 480px 50px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 520px 20px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 560px 70px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 600px 40px, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 200px 100px, 180px 120px, 220px 90px, 160px 110px, 240px 95px, 190px 105px, 210px 115px, 170px 85px, 250px 100px, 200px 120px, 180px 90px, 230px 110px, 160px 95px, 220px 105px, 200px 85px, 240px 115px;
+    animation: 
+        particle-drift-1 25s linear infinite,
+        particle-drift-2 30s linear infinite reverse,
+        particle-drift-3 35s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 60px 15px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 100px 55px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 140px 85px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 180px 25px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 220px 65px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 260px 45px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 300px 75px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 340px 35px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 380px 85px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 420px 15px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 460px 65px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 500px 45px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 540px 75px, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 580px 25px, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 150px 80px, 200px 120px, 180px 100px, 220px 90px, 160px 110px, 240px 95px, 190px 105px, 210px 85px, 170px 115px, 250px 75px, 200px 125px, 180px 95px, 230px 105px, 160px 85px;
+    animation: 
+        particle-drift-reverse-1 40s linear infinite reverse,
+        particle-drift-reverse-2 45s linear infinite,
+        particle-drift-reverse-3 50s linear infinite reverse;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes particle-drift-1 {
+    0% { transform: translateX(-100px) translateY(0px); }
+    100% { transform: translateX(calc(100vw + 100px)) translateY(-50px); }
+}
+
+@keyframes particle-drift-2 {
+    0% { transform: translateX(calc(100vw + 100px)) translateY(0px); }
+    100% { transform: translateX(-100px) translateY(30px); }
+}
+
+@keyframes particle-drift-3 {
+    0% { transform: translateX(-100px) translateY(20px); }
+    100% { transform: translateX(calc(100vw + 100px)) translateY(-20px); }
+}
+
+@keyframes particle-drift-reverse-1 {
+    0% { transform: translateX(calc(100vw + 100px)) translateY(10px); }
+    100% { transform: translateX(-100px) translateY(-40px); }
+}
+
+@keyframes particle-drift-reverse-2 {
+    0% { transform: translateX(-100px) translateY(-10px); }
+    100% { transform: translateX(calc(100vw + 100px)) translateY(40px); }
+}
+
+@keyframes particle-drift-reverse-3 {
+    0% { transform: translateX(calc(100vw + 100px)) translateY(-30px); }
+    100% { transform: translateX(-100px) translateY(10px); }
 }
 
 .mystical-canvas {
@@ -366,7 +454,7 @@ p {
     padding: 15px 35px;
     border: none;
     border-radius: 50px;
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
@@ -403,6 +491,69 @@ p {
 .section {
     padding: var(--section-padding);
     position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle particles to all sections */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 25px 40px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 75px 20px, rgba(255, 255, 255, 0.35), transparent),
+        radial-gradient(1px 1px at 125px 60px, rgba(255, 255, 255, 0.45), transparent),
+        radial-gradient(1px 1px at 175px 30px, rgba(255, 255, 255, 0.38), transparent),
+        radial-gradient(1px 1px at 225px 70px, rgba(255, 255, 255, 0.42), transparent),
+        radial-gradient(1px 1px at 275px 45px, rgba(255, 255, 255, 0.36), transparent),
+        radial-gradient(1px 1px at 325px 15px, rgba(255, 255, 255, 0.44), transparent),
+        radial-gradient(1px 1px at 375px 65px, rgba(255, 255, 255, 0.39), transparent),
+        radial-gradient(1px 1px at 425px 85px, rgba(255, 255, 255, 0.37), transparent),
+        radial-gradient(1px 1px at 475px 25px, rgba(255, 255, 255, 0.43), transparent),
+        radial-gradient(1px 1px at 525px 55px, rgba(255, 255, 255, 0.40), transparent),
+        radial-gradient(1px 1px at 575px 35px, rgba(255, 255, 255, 0.41), transparent);
+    background-size: 300px 150px, 250px 120px, 350px 180px, 280px 140px, 320px 160px, 260px 130px, 340px 170px, 290px 145px, 310px 155px, 270px 135px, 330px 165px, 300px 175px;
+    animation: gentle-particle-drift 60s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Add second layer of particles for more density */
+.section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 50px 65px, rgba(255, 255, 255, 0.32), transparent),
+        radial-gradient(1px 1px at 100px 35px, rgba(255, 255, 255, 0.38), transparent),
+        radial-gradient(1px 1px at 150px 80px, rgba(255, 255, 255, 0.34), transparent),
+        radial-gradient(1px 1px at 200px 50px, rgba(255, 255, 255, 0.40), transparent),
+        radial-gradient(1px 1px at 250px 25px, rgba(255, 255, 255, 0.36), transparent),
+        radial-gradient(1px 1px at 300px 75px, rgba(255, 255, 255, 0.33), transparent),
+        radial-gradient(1px 1px at 350px 45px, rgba(255, 255, 255, 0.39), transparent),
+        radial-gradient(1px 1px at 400px 70px, rgba(255, 255, 255, 0.35), transparent),
+        radial-gradient(1px 1px at 450px 40px, rgba(255, 255, 255, 0.37), transparent),
+        radial-gradient(1px 1px at 500px 85px, rgba(255, 255, 255, 0.34), transparent);
+    background-size: 280px 140px, 320px 160px, 240px 120px, 360px 180px, 290px 145px, 330px 165px, 270px 135px, 340px 170px, 310px 155px, 350px 175px;
+    animation: gentle-particle-drift-reverse 75s linear infinite reverse;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes gentle-particle-drift-reverse {
+    0% { transform: translateX(calc(100vw + 50px)) translateY(10px); }
+    100% { transform: translateX(-50px) translateY(-15px); }
+}
+
+@keyframes gentle-particle-drift {
+    0% { transform: translateX(-50px) translateY(0px); }
+    100% { transform: translateX(calc(100vw + 50px)) translateY(-20px); }
 }
 
 .section-alt {
@@ -534,7 +685,7 @@ p {
     border-radius: 10px;
     background: rgba(45, 27, 61, 0.5);
     color: var(--star-white);
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }

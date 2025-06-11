@@ -44,9 +44,8 @@ add_action('after_setup_theme', 'mystic_circle_setup');
 /**
  * Enqueue scripts and styles
  */
-function mystic_circle_scripts() {
-    // Google Fonts
-    wp_enqueue_style('mystic-fonts', 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap', array(), '1.0.0');
+function mystic_circle_scripts() {    // Google Fonts
+    wp_enqueue_style('mystic-fonts', 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap', array(), '1.0.0');
     
     // Theme stylesheet
     wp_enqueue_style('mystic-circle-style', get_stylesheet_uri(), array(), '1.0.0');
