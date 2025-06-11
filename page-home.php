@@ -31,7 +31,7 @@ get_header(); ?>
 
 <!-- Celebrity Predictions Section -->
 <div class="section-divider">
-    <div class="mystical-wave"></div>
+    <div class="premium-wave-top"></div>
 </div>
 
 <section class="section section-alt section-with-divider" id="celebrity">
@@ -80,7 +80,7 @@ get_header(); ?>
 
 <!-- Features Section -->
 <div class="section-divider">
-    <div class="cosmic-mist"></div>
+    <div class="premium-wave"></div>
 </div>
 
 <section class="section section-with-divider" id="features">
@@ -123,7 +123,7 @@ get_header(); ?>
 
 <!-- Order Section -->
 <div class="section-divider">
-    <div class="constellation-path"></div>
+    <div class="premium-wave-bottom"></div>
 </div>
 
 <section class="section order-section section-with-divider" id="order">
@@ -260,7 +260,7 @@ get_header(); ?>
 
 <!-- Testimonials Section -->
 <div class="section-divider">
-    <div class="mystical-curve"></div>
+    <div class="premium-wave"></div>
 </div>
 
 <section class="section section-alt section-with-divider" id="testimonials">
@@ -302,7 +302,7 @@ get_header(); ?>
 
 <!-- What Do We Offer Section -->
 <div class="section-divider">
-    <div class="cosmic-mist"></div>
+    <div class="premium-wave-top"></div>
 </div>
 
 <section class="section what-we-offer-section section-with-divider" id="what-we-offer">
